@@ -80,7 +80,20 @@
         <docker.jib-maven-plugin.version>2.6.0</docker.jib-maven-plugin.version>
         <docker.image.prefix>springcommunity</docker.image.prefix>
 
-    </properties>
+</properties>
+
+<distributionManagement>
+  <repository>
+    <id>maven-releases</id>
+    <!-- CHANGE HERE by your team Nexus server -->
+    <url>http://172.17.0.1:8081/repository/maven-releases/</url>
+  </repository>
+  <snapshotRepository>
+    <id>maven-snapshots</id>
+    <!-- CHANGE HERE by your team Nexus server -->
+    <url>http://172.17.0.1:8081/repository/maven-releases/</url>
+  </snapshotRepository>
+</distributionManagement>
 
     <dependencyManagement>
         <dependencies>
@@ -545,7 +558,14 @@
         </profile>
    </profiles>
 
-    <repositories>
+   <repositories>
+
+	   <repository>
+  <id>maven-releases</id>
+  <name>maven-releases</name>
+  <url>http://172.17.0.1:8081/repository/maven-releases/</url>
+</repository>
+
         <repository>
             <id>repository.spring.milestone</id>
             <name>Spring Milestone Repository</name>
